@@ -25,7 +25,7 @@ public class AddressBookService {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1 :
-                    addMultipleContacts();
+                    duplicateContactCheck();
                     break;
                 case 2 :
                     System.out.print("Enter first name : ");
@@ -83,27 +83,17 @@ public class AddressBookService {
     }
 
     /***
-     * created addMultipleContacts method to add multiple contacts
-     */
-    public void addMultipleContacts() {
-        System.out.print("Enter number of contacts : ");
-        int numberOfContacts = sc.nextInt();
-        for (int i = 0; i < numberOfContacts; i++) {
-            duplicateContactCheck();
-        }
-    }
-
-    /***
      * created duplicateContactCheck method to check given exists or not
      */
     private void duplicateContactCheck() {
-        System.out.print("Enter first name : ");
+        System.out.print("Enter first name to check : ");
         firstName = sc.next();
         for(Person person : personList) {
             if(person.getFirstName().equals(firstName)) {
                 System.out.println("Given name already exists");
             } return;
-        }  addContact();
+        }
+        addContact();
     }
 
     /***
